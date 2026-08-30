@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import acaiImage from "../assets/images/about.png";
+import acaiImage from "/images/about.png";
 
 const steps = [
   {

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import hero from "../assets/images/hero.png";
+import hero from "/images/hero.png";
 
 export default function Hero() {
   const scrollToProducts = () => {
