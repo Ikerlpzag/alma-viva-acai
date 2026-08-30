@@ -1,129 +1,123 @@
-import { FiInstagram, FiMail } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const navigation = [
-  { name: "Inicio", id: "inicio" },
-  { name: "Açaí", id: "acai" },
-  { name: "Smoothies", id: "productos" },
-  { name: "Contacto", id: "visitanos" },
+  { label: "Inicio", id: "inicio" },
+  { label: "Sobre nosotros", id: "sobre" },
+  { label: "Açaí", id: "acai" },
+  { label: "Productos", id: "productos" },
+  { label: "Filosofía", id: "filosofia" },
+  { label: "Visítanos", id: "visitanos" },
 ];
 
-const scrollTo = (id) => {
-  document.getElementById(id)?.scrollIntoView({
-    behavior: "smooth",
-  });
-};
-
 export default function Footer() {
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <footer className="bg-[#241C28] px-6 text-white">
+    <footer className="bg-[#241C28] px-6 pb-8 pt-24 text-[#F7F1E8] md:pt-32">
       <div className="mx-auto max-w-7xl">
 
-        {/* Parte superior */}
-        <div className="border-b border-white/10 py-16 md:py-20">
-          <div className="grid gap-12 md:grid-cols-2">
+        {/* Marca */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="text-xs uppercase tracking-[0.35em] text-white/40">
+            Alma Viva Açaí
+          </p>
 
-            <div>
-              <p className="text-xl tracking-[0.18em]">
-                ALMA VIVA
-              </p>
+          <h2 className="mt-6 max-w-5xl text-5xl font-medium leading-[0.95] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[7rem]">
+            Açaí, sabor y
+            <br />
+            <span className="text-[#B994D1]">
+              vida mediterránea.
+            </span>
+          </h2>
+        </motion.div>
 
-              <p className="mt-6 max-w-md text-sm leading-7 text-white/50">
-                Alineando nutrición consciente y disfrute puro bajo el sol
-                infinito de Aguadulce, Almería.
-              </p>
-            </div>
+        {/* Navegación */}
+        <div className="mt-20 grid gap-12 border-t border-white/15 pt-10 md:mt-28 md:grid-cols-[1fr_2fr]">
 
-            <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
-
-              {/* Navegación */}
-              <div>
-                <p className="mb-5 text-xs uppercase tracking-[0.25em] text-white/35">
-                  Explorar
-                </p>
-
-                <div className="flex flex-col items-start gap-3">
-                  {navigation.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => scrollTo(item.id)}
-                      className="text-sm text-white/65 transition hover:text-white"
-                    >
-                      {item.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Legal */}
-              <div>
-                <p className="mb-5 text-xs uppercase tracking-[0.25em] text-white/35">
-                  Legal
-                </p>
-
-                <div className="flex flex-col items-start gap-3">
-                  <a
-                    href="#"
-                    className="text-sm text-white/65 transition hover:text-white"
-                  >
-                    Privacidad
-                  </a>
-
-                  <a
-                    href="#"
-                    className="text-sm text-white/65 transition hover:text-white"
-                  >
-                    Términos
-                  </a>
-
-                  <a
-                    href="#"
-                    className="text-sm text-white/65 transition hover:text-white"
-                  >
-                    Cookies
-                  </a>
-                </div>
-              </div>
-
-              {/* Contacto */}
-              <div>
-                <p className="mb-5 text-xs uppercase tracking-[0.25em] text-white/35">
-                  Contacto
-                </p>
-
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="mailto:hello@almavivaacai.com"
-                    className="flex items-center gap-2 text-sm text-white/65 transition hover:text-white"
-                  >
-                    <FiMail size={15} />
-                    Email
-                  </a>
-
-                  <a
-                    href="https://www.instagram.com/almavivaacai/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 text-sm text-white/65 transition hover:text-white"
-                  >
-                    <FiInstagram size={15} />
-                    Instagram
-                  </a>
-                </div>
-              </div>
-
-            </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-white/40">
+              Explorar
+            </p>
           </div>
+
+          <nav className="grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-3">
+            {navigation.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="w-fit text-left text-sm text-white/70 transition-colors hover:text-white"
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
         </div>
 
-        {/* Parte inferior */}
-        <div className="flex flex-col gap-3 py-6 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+        {/* Información */}
+        <div className="mt-16 grid gap-10 border-t border-white/15 pt-10 md:grid-cols-3">
+
+          <div>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/40">
+              Visítanos
+            </p>
+
+            <p className="mt-5 text-sm leading-6 text-white/70">
+              Paseo Marítimo de Aguadulce
+              <br />
+              Almería, España
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/40">
+              Instagram
+            </p>
+
+            <a
+              href="https://www.instagram.com/almavivaacai/"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 block w-fit text-sm text-white/70 transition-colors hover:text-white"
+            >
+              @almavivaacai
+            </a>
+          </div>
+
+          <div>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/40">
+              Horario
+            </p>
+
+            <p className="mt-5 text-sm leading-6 text-white/70">
+              Lunes a domingo
+              <br />
+              10:00 — 21:00
+            </p>
+          </div>
+
+        </div>
+
+        {/* Bottom */}
+        <div className="mt-20 flex flex-col gap-5 border-t border-white/15 pt-7 text-[11px] text-white/35 sm:flex-row sm:items-center sm:justify-between">
+
           <p>
-            © 2026 Alma Viva Açaí. Todos los derechos reservados.
+            © {new Date().getFullYear()} Alma Viva Açaí
           </p>
 
           <p>
             Diseñado con amor mediterráneo.
           </p>
+
         </div>
 
       </div>

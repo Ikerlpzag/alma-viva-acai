@@ -4,21 +4,21 @@ import acaiImage from "/images/about.png";
 const steps = [
   {
     number: "01",
-    title: "La base",
+    title: "Base artesanal",
     description:
-      "Preparamos nuestra base de açaí al momento, combinándola con banana y guaraná hasta conseguir una textura cremosa y equilibrada.",
+      "Preparamos nuestra base de açaí al momento con banana y guaraná, buscando una textura cremosa y un sabor equilibrado.",
   },
   {
     number: "02",
-    title: "A tu manera",
+    title: "Tú eliges",
     description:
-      "Elige los toppings que más te gustan y crea una combinación completamente personalizada.",
+      "Añade los toppings que más te gustan y crea una combinación completamente personalizada.",
   },
   {
     number: "03",
     title: "Disfruta",
     description:
-      "Te lo servimos en vaso, listo para disfrutarlo paseando por el paseo marítimo o tomándote tu tiempo con nosotros.",
+      "Te lo servimos en vaso, como se disfruta tradicionalmente en Brasil, listo para disfrutarlo a tu manera.",
   },
 ];
 
@@ -30,98 +30,125 @@ export default function Acai() {
   };
 
   return (
-    <section id="acai" className="bg-[#5B2C83] text-white">
-      <div className="grid min-h-screen md:grid-cols-2">
+    <section
+      id="acai"
+      className="overflow-hidden bg-[#5B2C83] text-white"
+    >
+      <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
 
-        {/* Imagen */}
+        {/* Cabecera */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative min-h-[500px] md:min-h-screen"
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:items-end"
         >
-          <img
-            src={acaiImage}
-            alt="Açaí artesanal de Alma Viva"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <div>
+            <p className="text-xs uppercase tracking-[0.35em] text-white/55">
+              Nuestro açaí
+            </p>
+          </div>
 
-          <div className="absolute inset-0 bg-black/10" />
+          <h2 className="max-w-4xl text-5xl font-medium leading-[0.98] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[6.5rem]">
+            El sabor de Brasil,
+            <br />
+            <span className="text-[#D9C3E8]">
+              hecho al momento.
+            </span>
+          </h2>
         </motion.div>
 
-        {/* Contenido */}
-        <div className="flex items-center px-6 py-24 md:px-14 lg:px-20">
-          <div className="w-full max-w-xl">
+        {/* Imagen + introducción */}
+        <div className="mt-16 grid gap-12 md:mt-24 md:grid-cols-[1.25fr_0.75fr] md:items-end md:gap-20">
 
-            {/* Cabecera */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-            >
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">
-                Nuestro açaí
-              </p>
-
-              <h2 className="mt-5 text-4xl font-medium leading-[1.08] tracking-tight md:text-6xl">
-                El sabor de Brasil,
-                <br />
-                hecho al momento.
-              </h2>
-
-              <p className="mt-7 max-w-lg text-base leading-7 text-white/70">
-                Nuestro producto estrella se prepara de manera totalmente
-                artesanal. Elaboramos la base en el momento con açaí, banana y
-                guaraná, cuidando cada detalle para conseguir una textura
-                cremosa y un sabor que nos representa.
-              </p>
-            </motion.div>
-
-            {/* Proceso */}
-            <div className="mt-14 border-t border-white/15">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
-                  className="grid grid-cols-[45px_1fr] gap-5 border-b border-white/15 py-7"
-                >
-                  <span className="text-xs tracking-wider text-white/40">
-                    {step.number}
-                  </span>
-
-                  <div>
-                    <h3 className="text-xl">
-                      {step.title}
-                    </h3>
-
-                    <p className="mt-2 max-w-md text-sm leading-6 text-white/60">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Imagen */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="overflow-hidden">
+              <img
+                src={acaiImage}
+                alt="Açaí artesanal de Alma Viva"
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover md:aspect-[4/5]"
+              />
             </div>
 
-            {/* CTA */}
-            <motion.button
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              onClick={scrollToProducts}
-              className="mt-10 border-b border-white pb-1 text-sm transition-opacity hover:opacity-60"
-            >
-              Descubre nuestros productos
-            </motion.button>
+            {/* Etiqueta */}
+            <div className="absolute bottom-5 left-5">
+              <span className="bg-[#F7F1E8] px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-[#5B2C83]">
+                Alma Viva Açaí
+              </span>
+            </div>
+          </motion.div>
 
+          {/* Texto */}
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7 }}
+            className="pb-2"
+          >
+            <p className="text-2xl font-medium leading-tight md:text-3xl">
+              Nuestro producto estrella, preparado de una forma que respeta
+              su esencia.
+            </p>
+
+            <p className="mt-7 text-sm leading-7 text-white/65 md:text-base">
+              Elaboramos nuestra base de manera totalmente artesanal en el
+              momento, utilizando banana y guaraná para conseguir una textura
+              cremosa y un sabor característico.
+            </p>
+
+            <p className="mt-5 text-sm leading-7 text-white/65 md:text-base">
+              Después solo tienes que elegir los toppings que quieres añadir.
+              Porque cada persona tiene su combinación perfecta.
+            </p>
+
+            <button
+              onClick={scrollToProducts}
+              className="mt-9 border-b border-white pb-1 text-sm transition-opacity hover:opacity-60"
+            >
+              Ver nuestros productos →
+            </button>
+          </motion.div>
+
+        </div>
+
+        {/* Proceso */}
+        <div className="mt-20 border-t border-white/15 md:mt-28">
+          <div className="grid md:grid-cols-3">
+            {steps.map((step, index) => (
+              <motion.article
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                }}
+                className="border-b border-white/15 py-8 md:border-b-0 md:border-r md:px-8 md:py-10 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+              >
+                <span className="text-xs tracking-[0.2em] text-white/40">
+                  {step.number}
+                </span>
+
+                <h3 className="mt-8 text-2xl font-medium">
+                  {step.title}
+                </h3>
+
+                <p className="mt-4 max-w-sm text-sm leading-7 text-white/60">
+                  {step.description}
+                </p>
+              </motion.article>
+            ))}
           </div>
         </div>
 
