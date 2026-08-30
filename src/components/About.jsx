@@ -5,65 +5,67 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="bg-[#F7F1E8] py-24 md:py-32"
+      className="bg-[#F7F1E8] px-6 py-24 md:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-14 md:grid-cols-2 md:gap-20">
 
           {/* Imagen */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7 }}
-            className="order-2 md:order-1"
           >
-            <img
-              src={aboutImage}
-              alt="Alma Viva Açaí en Aguadulce"
-              className="w-full aspect-[4/5] object-cover"
-            />
+            <div className="overflow-hidden">
+              <img
+                src={aboutImage}
+                alt="Alma Viva Açaí en Aguadulce"
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </div>
           </motion.div>
 
           {/* Texto */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7 }}
-            className="order-1 md:order-2"
           >
-            <p className="mb-5 text-xs uppercase tracking-[0.35em] text-[#5B2C83]">
+            <p className="text-xs uppercase tracking-[0.35em] text-[#5B2C83]">
               Sobre nosotros
             </p>
 
-            <h2 className="max-w-xl text-4xl leading-tight text-[#241C28] md:text-5xl">
-              Salud, calidad y sabor bajo el sol de Almería.
+            <h2 className="mt-5 max-w-xl text-4xl font-medium leading-[1.08] tracking-tight text-[#241C28] md:text-6xl">
+              Un lugar para
+              <br />
+              conectar contigo.
             </h2>
 
-            <div className="mt-7 max-w-xl space-y-5 text-base leading-7 text-[#241C28]/70">
+            <div className="mt-8 max-w-xl space-y-5 text-base leading-7 text-[#241C28]/70">
               <p>
-                Alma Viva Açaí nace para ofrecer en Aguadulce una forma
-                diferente de disfrutar de la comida saludable: productos de
-                alta calidad, elaborados con mimo y pensados para disfrutar
-                sin prisas.
+                Alma Viva Açaí nace con una idea sencilla: acercar a Aguadulce
+                una propuesta de comida saludable y de alta calidad, sin
+                renunciar al sabor.
               </p>
 
               <p>
-                Nuestro producto estrella es el açaí. Preparamos nuestra base
-                de manera artesanal en el momento, combinando plátano y
-                guaraná para conseguir una textura cremosa y un sabor único.
+                Nuestro producto estrella es el açaí. Elaboramos nuestra base
+                de manera totalmente artesanal en el momento, combinando
+                banana y guaraná para conseguir una textura cremosa y un sabor
+                único.
               </p>
 
               <p>
-                Tú eliges cómo hacerlo tuyo. Añade tus toppings favoritos y
-                crea una combinación a tu medida.
+                Además, puedes elegir los toppings que quieres añadir y crear
+                una combinación personalizada, hecha exactamente a tu gusto.
               </p>
 
               <p>
-                Todo esto en un espacio limpio y cuidado, frente al mar, donde
-                queremos que puedas desconectar del mundo exterior y conectar
-                contigo mismo.
+                Todo esto en un espacio de estética limpia y cuidada, situado
+                en el Paseo Marítimo de Aguadulce, donde queremos que puedas
+                desconectar del mundo exterior y conectar contigo mismo.
               </p>
             </div>
 
@@ -73,7 +75,7 @@ export default function About() {
                   behavior: "smooth",
                 })
               }
-              className="mt-8 inline-flex border-b border-[#5B2C83] pb-1 text-sm text-[#5B2C83] transition hover:border-[#241C28] hover:text-[#241C28]"
+              className="mt-9 border-b border-[#5B2C83] pb-1 text-sm text-[#5B2C83] transition-colors hover:border-[#241C28] hover:text-[#241C28]"
             >
               Descubre nuestro açaí
             </button>
