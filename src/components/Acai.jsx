@@ -4,25 +4,31 @@ import acaiImage from "../assets/images/about.png";
 const steps = [
   {
     number: "01",
-    title: "Base artesanal",
+    title: "La base",
     description:
-      "Preparamos nuestra base de açaí al momento, combinando açaí, banana y guaraná para conseguir una textura cremosa y un sabor único.",
+      "Preparamos nuestra base de açaí al momento, combinándola con banana y guaraná hasta conseguir una textura cremosa y equilibrada.",
   },
   {
     number: "02",
-    title: "Tú eliges",
+    title: "A tu manera",
     description:
-      "Personaliza tu açaí escogiendo los toppings que más te apetezcan y crea una combinación completamente a tu gusto.",
+      "Elige los toppings que más te gustan y crea una combinación completamente personalizada.",
   },
   {
     number: "03",
-    title: "Disfruta el momento",
+    title: "Disfruta",
     description:
-      "Un producto preparado para ti, en un espacio pensado para desconectar y disfrutar sin prisas.",
+      "Te lo servimos en vaso, listo para disfrutarlo paseando por el paseo marítimo o tomándote tu tiempo con nosotros.",
   },
 ];
 
 export default function Acai() {
+  const scrollToProducts = () => {
+    document.getElementById("productos")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section id="acai" className="bg-[#5B2C83] text-white">
       <div className="grid min-h-screen md:grid-cols-2">
@@ -45,57 +51,58 @@ export default function Acai() {
         </motion.div>
 
         {/* Contenido */}
-        <div className="flex items-center px-6 py-20 md:px-16 lg:px-24">
-          <div className="max-w-xl">
+        <div className="flex items-center px-6 py-24 md:px-14 lg:px-20">
+          <div className="w-full max-w-xl">
 
+            {/* Cabecera */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="mb-5 text-xs uppercase tracking-[0.35em] text-white/60">
+              <p className="text-xs uppercase tracking-[0.35em] text-white/55">
                 Nuestro açaí
               </p>
 
-              <h2 className="text-4xl leading-tight md:text-6xl">
+              <h2 className="mt-5 text-4xl font-medium leading-[1.08] tracking-tight md:text-6xl">
                 El sabor de Brasil,
                 <br />
                 hecho al momento.
               </h2>
 
-              <p className="mt-7 max-w-lg text-base leading-7 text-white/75">
-                Nuestro producto estrella nace de una elaboración totalmente
-                artesanal. Preparamos la base en el momento con açaí, banana y
-                guaraná, cuidando cada detalle para conseguir la textura y el
-                sabor que buscamos.
+              <p className="mt-7 max-w-lg text-base leading-7 text-white/70">
+                Nuestro producto estrella se prepara de manera totalmente
+                artesanal. Elaboramos la base en el momento con açaí, banana y
+                guaraná, cuidando cada detalle para conseguir una textura
+                cremosa y un sabor que nos representa.
               </p>
             </motion.div>
 
-            {/* Pasos */}
-            <div className="mt-14 border-t border-white/20">
+            {/* Proceso */}
+            <div className="mt-14 border-t border-white/15">
               {steps.map((step, index) => (
                 <motion.div
                   key={step.number}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{
                     duration: 0.5,
                     delay: index * 0.1,
                   }}
-                  className="grid grid-cols-[50px_1fr] gap-5 border-b border-white/20 py-7"
+                  className="grid grid-cols-[45px_1fr] gap-5 border-b border-white/15 py-7"
                 >
-                  <span className="text-sm text-white/50">
+                  <span className="text-xs tracking-wider text-white/40">
                     {step.number}
                   </span>
 
                   <div>
-                    <h3 className="text-lg">
+                    <h3 className="text-xl">
                       {step.title}
                     </h3>
 
-                    <p className="mt-2 text-sm leading-6 text-white/65">
+                    <p className="mt-2 max-w-md text-sm leading-6 text-white/60">
                       {step.description}
                     </p>
                   </div>
@@ -103,16 +110,17 @@ export default function Acai() {
               ))}
             </div>
 
-            <button
-              onClick={() =>
-                document.getElementById("productos")?.scrollIntoView({
-                  behavior: "smooth",
-                })
-              }
+            {/* CTA */}
+            <motion.button
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              onClick={scrollToProducts}
               className="mt-10 border-b border-white pb-1 text-sm transition-opacity hover:opacity-60"
             >
-              Ver nuestros productos
-            </button>
+              Descubre nuestros productos
+            </motion.button>
 
           </div>
         </div>
