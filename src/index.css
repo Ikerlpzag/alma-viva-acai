@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #F7F1E8;
+  --purple: #5B2C83;
+  --purple-dark: #432060;
+  --text: #241C28;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+}
