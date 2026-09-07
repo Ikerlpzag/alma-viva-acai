@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 
+const INSTAGRAM_URL = "https://www.instagram.com/almavivaacai/";
+const GLOVO_URL =
+  "https://glovoapp.com/es/es/aguadulce/stores/alma-viva-acai-aguadulce";
+
 export default function Visit() {
   return (
     <section
@@ -7,8 +11,7 @@ export default function Visit() {
       className="bg-[#241C28] px-6 py-28 text-[#F7F1E8] md:py-36"
     >
       <div className="mx-auto max-w-7xl">
-
-        {/* Titular */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,122 +22,189 @@ export default function Visit() {
             Visítanos
           </p>
 
-          <h2 className="mt-6 max-w-6xl text-5xl font-medium leading-[0.95] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[7rem]">
+          <h2 className="mt-6 max-w-6xl text-5xl font-medium leading-[0.98] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[6.5rem]">
             Tu momento.
             <br />
-            <span className="text-[#B994D1]">
-              Frente al mar.
-            </span>
+            <span className="text-[#D9C3E8]">Frente al mar.</span>
           </h2>
         </motion.div>
 
-        {/* Mapa */}
-        <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
-        className="mt-16 md:mt-24"
-        >
-        <div className="relative h-[420px] overflow-hidden sm:h-[500px] md:h-[600px]">
+        {/* Location */}
+        <div className="mt-20 grid gap-12 md:mt-28 md:grid-cols-[1.15fr_0.85fr] md:items-stretch md:gap-20">
+          {/* Map */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="min-h-[420px] overflow-hidden md:min-h-[560px]"
+          >
             <iframe
-            title="Ubicación de Alma Viva Açaí"
-            src="https://www.google.com/maps?q=Paseo%20Marítimo%20de%20Aguadulce%2C%20Almería&output=embed"
-            className="absolute inset-0 h-full w-full border-0"
-            loading="lazy"
+              title="Ubicación de Alma Viva Açaí"
+              src="https://www.google.com/maps?q=Paseo%20Marítimo%20de%20Aguadulce%2C%20Almería&output=embed"
+              className="h-full min-h-[420px] w-full border-0 md:min-h-[560px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
+          </motion.div>
+
+          {/* Information */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col justify-between"
+          >
+            <div>
+              <div className="border-t border-[#F7F1E8]/15 py-7">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[#D9C3E8]">
+                  Dirección
+                </p>
+
+                <p className="mt-4 text-xl font-medium leading-tight md:text-2xl">
+                  Paseo Marítimo de Aguadulce
+                  <br />
+                  Almería, España
+                </p>
+              </div>
+
+              <div className="border-t border-[#F7F1E8]/15 py-7">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[#D9C3E8]">
+                  Horario
+                </p>
+
+                <p className="mt-4 text-xl font-medium leading-tight md:text-2xl">
+                  Lunes a viernes
+                  <br />
+                  16:00 — 23:30
+                </p>
+                <p className="mt-4 text-xl font-medium leading-tight md:text-2xl">
+                  Sábados y domingos
+                  <br />
+                  10:00 — 14:00
+                  <br />
+                  16:00 — 00:00
+                </p>
+              </div>
+
+              <div className="border-y border-[#F7F1E8]/15 py-7">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[#D9C3E8]">
+                  Instagram
+                </p>
+
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-xl font-medium transition-colors duration-300 hover:text-[#D9C3E8] md:text-2xl"
+                >
+                  @almavivaacai
+                </a>
+              </div>
+            </div>
+
+            {/* Social icons */}
+            <div className="mt-10 flex gap-3">
+              {/* Instagram */}
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="group flex h-12 w-12 items-center justify-center border border-[#F7F1E8]/20 transition-all duration-300 hover:border-[#D9C3E8] hover:bg-[#D9C3E8]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-[21px] w-[21px] transition-all duration-300 group-hover:brightness-0"
+                >
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    stroke="#F7F1E8"
+                    strokeWidth="1.8"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    stroke="#F7F1E8"
+                    strokeWidth="1.8"
+                  />
+                  <circle
+                    cx="17.3"
+                    cy="6.7"
+                    r="1"
+                    fill="#F7F1E8"
+                  />
+                </svg>
+              </a>
+
+              {/* Glovo */}
+              <a
+                href={GLOVO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pedir en Glovo"
+                className="group flex h-12 w-12 items-center justify-center border border-[#F7F1E8]/20 transition-all duration-300 hover:border-[#D9C3E8] hover:bg-[#D9C3E8]"
+              >
+                <svg
+                  viewBox="0 0 192 192"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#F7F1E8"
+                  className="h-[23px] w-[23px] transition-all duration-300 group-hover:brightness-0"
+                >
+                  <path
+                    d="M0 0h192v192H0z"
+                    style={{ fill: "none" }}
+                  />
+
+                  <path
+                    d="m96 146 36.93-54.02C153.23 62.29 131.97 22 96 22h0c-35.97 0-57.23 40.29-36.93 69.98L96 146Z"
+                    style={{
+                      stroke: "#F7F1E8",
+                      strokeLinecap: "round",
+                      strokeLinejoin: "round",
+                      strokeWidth: 12,
+                      fill: "none",
+                    }}
+                  />
+
+                  <circle
+                    cx="96"
+                    cy="168.5"
+                    r="7.5"
+                    fill="#F7F1E8"
+                  />
+                </svg>
+              </a>
+            </div>
+          </motion.div>
         </div>
-        </motion.div>
 
-        {/* Información */}
-        <div className="mt-16 grid border-t border-white/15 md:mt-20 md:grid-cols-3">
-
-          {/* Dirección */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="border-b border-white/15 py-8 md:border-b-0 md:border-r md:px-8 md:py-10 md:first:pl-0"
-          >
-            <span className="text-xs uppercase tracking-[0.25em] text-white/40">
-              Dirección
-            </span>
-
-            <p className="mt-6 max-w-xs text-lg leading-7">
-              Paseo Marítimo de Aguadulce
-              <br />
-              Almería, España
-            </p>
-          </motion.div>
-
-          {/* Horario */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="border-b border-white/15 py-8 md:border-b-0 md:border-r md:px-8 md:py-10"
-          >
-            <span className="text-xs uppercase tracking-[0.25em] text-white/40">
-              Horario
-            </span>
-
-            <p className="mt-6 text-lg leading-7">
-              Lunes a domingo
-              <br />
-              10:00 — 21:00
-            </p>
-          </motion.div>
-
-          {/* Instagram */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="py-8 md:px-8 md:py-10 md:last:pr-0"
-          >
-            <span className="text-xs uppercase tracking-[0.25em] text-white/40">
-              Instagram
-            </span>
-
-            <a
-              href="https://www.instagram.com/almavivaacai/"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 block w-fit border-b border-white/40 pb-1 text-lg transition-opacity hover:opacity-60"
-            >
-              @almavivaacai
-            </a>
-          </motion.div>
-
-        </div>
-
-        {/* CTA final */}
+        {/* Closing statement */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-20 border-t border-white/15 pt-10 md:mt-28 md:flex md:items-center md:justify-between"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="mt-28 border-t border-[#F7F1E8]/15 pt-12 md:mt-36 md:pt-16"
         >
-          <p className="max-w-lg text-xl leading-tight text-white/80 md:text-2xl">
-            Desconecta del mundo exterior.
+          <p className="max-w-5xl text-4xl font-medium leading-[1.05] tracking-[-0.03em] sm:text-5xl md:text-6xl">
+            Un bowl, algo fresco
             <br />
-            Conecta contigo.
+            y el mar delante.
           </p>
 
-          <a
-            href="https://www.instagram.com/almavivaacai/"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-8 inline-block border-b border-[#D9C3E8] pb-1 text-sm text-[#D9C3E8] transition-opacity hover:opacity-60 md:mt-0"
-          >
-            Síguenos en Instagram →
-          </a>
+          <p className="mt-6 text-sm text-[#F7F1E8]/50 md:text-base">
+            A veces no hace falta mucho más.
+          </p>
         </motion.div>
-
       </div>
     </section>
   );

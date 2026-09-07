@@ -99,9 +99,16 @@ export default function Footer() {
             </p>
 
             <p className="mt-5 text-sm leading-6 text-white/70">
-              Lunes a domingo
+              Lunes a viernes
               <br />
-              10:00 — 21:00
+              16:00 — 23:30
+            </p>
+            <p className="mt-5 text-sm leading-6 text-white/70">
+              Sábados y domingos
+              <br />
+              10:00 — 14:00
+              <br />
+              16:00 — 00:00
             </p>
           </div>
 
@@ -115,7 +122,7 @@ export default function Footer() {
           </p>
 
           <p>
-            Diseñado con amor mediterráneo.
+            Hecho en Aguadulce.
           </p>
 
         </div>

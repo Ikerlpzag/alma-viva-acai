@@ -4,17 +4,17 @@ const values = [
   {
     number: "01",
     title: "Ingredientes reales",
-    text: "Seleccionamos frutas locales del poniente de Almería e importamos nuestro açaí brasileño.",
+    text: "Seleccionamos ingredientes de calidad, combinando productos locales con nuestro açaí brasileño.",
   },
   {
     number: "02",
     title: "Elaboración honesta",
-    text: "Preparamos cada producto al momento, sin atajos y cuidando cada detalle.",
+    text: "Preparamos cada producto cuidando el proceso y respetando el sabor de cada ingrediente.",
   },
   {
     number: "03",
     title: "Hecho con amor",
-    text: "Creemos en tomarnos el tiempo necesario para conseguir una experiencia que disfrutes.",
+    text: "Ponemos atención en cada detalle para que venir a Alma Viva sea mucho más que simplemente comer.",
   },
 ];
 
@@ -22,102 +22,82 @@ export default function Philosophy() {
   return (
     <section
       id="filosofia"
-      className="bg-[#F7F1E8] px-6 py-28 md:py-36"
+      className="overflow-hidden bg-[#F7F1E8] px-6 py-28 text-[#241C28] md:py-36"
     >
       <div className="mx-auto max-w-7xl">
-
-        {/* Cabecera */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
-          className="max-w-5xl"
         >
           <p className="text-xs uppercase tracking-[0.35em] text-[#5B2C83]">
             Nuestra filosofía
           </p>
 
-          <h2 className="mt-6 text-5xl font-medium leading-[0.96] tracking-[-0.04em] text-[#241C28] sm:text-6xl md:text-7xl lg:text-[7rem]">
+          <h2 className="mt-6 max-w-6xl text-5xl font-medium leading-[0.98] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[6.5rem]">
             Hecho con amor.
             <br />
-            <span className="text-[#5B2C83]">
-              Ingredientes reales.
-            </span>
+            <span className="text-[#5B2C83]">Ingredientes reales.</span>
           </h2>
         </motion.div>
 
-        {/* Frase */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="mt-16 ml-auto max-w-xl md:mt-24 md:mr-[8%]"
-        >
-          <p className="text-2xl font-medium leading-tight text-[#241C28] md:text-3xl">
-            Una forma más sencilla de disfrutar de algo bueno.
-          </p>
+        <div className="mt-20 grid gap-12 md:mt-28 md:grid-cols-[0.7fr_1.3fr] md:items-start md:gap-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="text-2xl font-medium leading-tight md:text-3xl">
+              Una forma más sencilla de disfrutar de algo bueno.
+            </p>
+          </motion.div>
 
-          <p className="mt-6 text-sm leading-7 text-[#241C28]/60 md:text-base">
-            En Alma Viva creemos que la calidad está en los pequeños detalles:
-            buenos ingredientes, preparación cuidada y tiempo para hacer las
-            cosas bien.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl"
+          >
+            <p className="text-sm leading-7 text-[#241C28]/65 md:text-base">
+              En Alma Viva creemos que las cosas buenas empiezan por lo
+              esencial: ingredientes de calidad, preparación cuidada y atención
+              a cada detalle.
+            </p>
 
-        {/* Valores */}
-        <div className="mt-20 border-t border-[#241C28]/15 md:mt-28">
-          <div className="grid md:grid-cols-3">
-
-            {values.map((value, index) => (
-              <motion.article
-                key={value.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                }}
-                className="group border-b border-[#241C28]/15 py-9 md:border-b-0 md:border-r md:px-8 md:py-12 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
-              >
-                <div className="flex items-start justify-between">
-                  <span className="text-xs tracking-[0.2em] text-[#5B2C83]">
-                    {value.number}
-                  </span>
-
-                  <span className="text-xl text-[#5B2C83]/40 transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </div>
-
-                <h3 className="mt-14 text-2xl font-medium tracking-tight text-[#241C28] md:text-3xl">
-                  {value.title}
-                </h3>
-
-                <p className="mt-5 max-w-sm text-sm leading-7 text-[#241C28]/60">
-                  {value.text}
-                </p>
-              </motion.article>
-            ))}
-
-          </div>
+            <p className="mt-6 text-sm leading-7 text-[#241C28]/65 md:text-base">
+              Nos gusta hacer las cosas sin prisas y ofrecer productos que
+              puedas disfrutar sabiendo qué hay detrás de cada uno.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Cierre */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-20 border-t border-[#241C28]/15 pt-8 md:mt-28"
-        >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#241C28]/35">
-            Alma Viva Açaí · Aguadulce
-          </p>
-        </motion.div>
+        <div className="mt-20 border-t border-[#241C28]/15 md:mt-28">
+          {values.map((value, index) => (
+            <motion.div
+              key={value.number}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              className="grid gap-5 border-b border-[#241C28]/15 py-8 md:grid-cols-[0.15fr_0.35fr_1fr] md:items-start md:py-10"
+            >
+              <span className="text-xs tracking-[0.2em] text-[#5B2C83]">
+                {value.number}
+              </span>
 
+              <h3 className="text-2xl font-medium tracking-[-0.02em] md:text-3xl">
+                {value.title}
+              </h3>
+
+              <p className="max-w-xl text-sm leading-7 text-[#241C28]/60 md:text-base">
+                {value.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

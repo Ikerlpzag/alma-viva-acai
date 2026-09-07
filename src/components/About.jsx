@@ -69,20 +69,21 @@ export default function About() {
 
             <div className="mt-8 space-y-5 text-sm leading-7 text-[#241C28]/65 md:text-base">
               <p>
-                Alma Viva Açaí nace para ofrecer en Aguadulce una propuesta de
-                comida saludable y de alta calidad, fusionando un estilo de
-                vida saludable con sabores que realmente disfrutes.
+                Alma Viva Açaí nace en Aguadulce con una idea muy sencilla:
+                disfrutar de una alimentación saludable sin renunciar al
+                sabor.
               </p>
 
               <p>
-                Nuestro producto estrella es el açaí. Lo elaboramos de manera
-                totalmente artesanal, preparando la base en el momento con
-                banana y guaraná.
+                Cuidamos cada detalle, desde la selección de los ingredientes
+                hasta la preparación de cada producto, para ofrecerte una
+                experiencia fresca, natural y hecha al momento.
               </p>
 
               <p>
-                Después, tú decides cómo terminarlo. Elige los toppings que
-                quieres añadir y crea una combinación personalizada a tu gusto.
+                Y porque cada persona tiene sus propios gustos, tú decides
+                cómo terminarlo. Elige tus toppings favoritos y crea una
+                combinación hecha para ti.
               </p>
             </div>
 
@@ -94,7 +95,6 @@ export default function About() {
               </span>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

@@ -1,29 +1,58 @@
 import { motion } from "framer-motion";
 
-const products = [
+const bowls = [
   {
-    name: "Tropical Sunrise",
-    description:
-      "Mango, maracuyá, piña, plátano y base de agua de coco orgánica.",
-    image: "/images/about.png",
+    name: "Typical Bowl",
+    description: "Açaí, granola, banana, fresa y crema de cacahuete.",
+    price: "9,90 €",
+    image: "/images/typical.webp",
   },
   {
-    name: "Green Boost",
-    description:
-      "Espinaca baby, aguacate, manzana verde, jengibre y zumo de limón.",
-    image: "/images/about.png",
+    name: "Fresh Bowl",
+    description: "Açaí, granola, banana, fresa y fruta fresca.",
+    price: "9,90 €",
+    image: "/images/fresh.webp",
   },
   {
-    name: "Berry Bliss",
-    description:
-      "Frambuesas, arándanos, fresas de Huelva, plátano y leche de almendra.",
-    image: "/images/about.png",
+    name: "Brasileiro Bowl",
+    description: "Açaí con una combinación inspirada en su origen brasileño.",
+    price: "9,90 €",
+    image: "/images/brasileiro.webp",
   },
   {
-    name: "Mango Paradise",
-    description:
-      "Mango local, coco tierno, dátiles, vainilla y leche de avena.",
-    image: "/images/about.png",
+    name: "Goku Bowl",
+    description: "Açaí, fruta fresca y una combinación llena de energía.",
+    price: "9,90 €",
+    image: "/images/goku.webp",
+  },
+];
+
+const sizes = [
+  ["S", "350 ml", "9,90 €"],
+  ["M", "470 ml", "11,90 €"],
+  ["L", "590 ml", "13,90 €"],
+];
+
+const smoothies = [
+  {
+    name: "Carrot",
+    description: "Zanahoria, manzana, pera y jengibre.",
+    price: "7,90 €",
+  },
+  {
+    name: "Berry",
+    description: "Plátano, arándanos, mango y açaí.",
+    price: "7,90 €",
+  },
+  {
+    name: "Tropical",
+    description: "Mango, limón, piña y fruta de la pasión.",
+    price: "7,90 €",
+  },
+  {
+    name: "Coco",
+    description: "Plátano, piña y coco.",
+    price: "7,90 €",
   },
 ];
 
@@ -31,118 +60,156 @@ export default function Products() {
   return (
     <section
       id="productos"
-      className="bg-[#F7F1E8] px-6 py-28 md:py-36"
+      className="bg-[#F3EDE7] text-[#24102F]"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1800px] px-6 py-24 md:px-10 md:py-32 lg:px-14 lg:py-40">
+        <div className="max-w-5xl">
+          <p className="eyebrow text-[#5F2D91]">
+            Nuestra carta
+          </p>
 
-        {/* Cabecera */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:items-end"
-        >
-          <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-[#5B2C83]">
-              Nuestra carta
-            </p>
-          </div>
-
-          <h2 className="max-w-5xl text-5xl font-medium leading-[0.98] tracking-[-0.035em] text-[#241C28] sm:text-6xl md:text-7xl lg:text-[6.5rem]">
-            Elige tu combinación.
-          </h2>
-        </motion.div>
-
-        {/* Introducción */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="mt-8 max-w-xl text-sm leading-7 text-[#241C28]/60 md:ml-auto md:mr-[8%] md:mt-10 md:text-base"
-        >
-          Desde nuestras combinaciones favoritas hasta creaciones hechas a tu
-          gusto. Descubre todo lo que puedes disfrutar en Alma Viva.
-        </motion.p>
-
-        {/* Productos */}
-        <div className="mt-20 md:mt-28">
-          {products.map((product, index) => (
-            <motion.article
-              key={product.name}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.08,
-              }}
-              className={`grid gap-8 border-t border-[#241C28]/15 py-10 md:grid-cols-[80px_1fr_1fr] md:gap-10 md:py-14 ${
-                index % 2 === 1 ? "md:pl-[8%]" : ""
-              }`}
-            >
-              {/* Número */}
-              <span className="text-xs tracking-[0.2em] text-[#5B2C83]">
-                0{index + 1}
-              </span>
-
-              {/* Imagen */}
-              <div className="group overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-
-              {/* Información */}
-              <div className="flex flex-col justify-end md:pb-2">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-[#5B2C83]/70">
-                  {product.category}
-                </p>
-
-                <h3 className="mt-4 text-3xl font-medium tracking-tight text-[#241C28] md:text-4xl">
-                  {product.name}
-                </h3>
-
-                <p className="mt-4 max-w-md text-sm leading-7 text-[#241C28]/60">
-                  {product.description}
-                </p>
-
-                <span className="mt-7 text-xs uppercase tracking-[0.2em] text-[#241C28]/40">
-                  Alma Viva Açaí
-                </span>
-              </div>
-            </motion.article>
-          ))}
+          <motion.h2
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="mt-8 text-[clamp(4rem,9vw,9rem)] font-medium leading-[0.8] tracking-[-0.075em]"
+          >
+            Hecho para
+            <br />
+            disfrutar.
+          </motion.h2>
         </div>
 
-        {/* Personalización */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mt-20 border-t border-[#241C28]/15 pt-12 md:mt-28 md:flex md:items-end md:justify-between"
-        >
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#5B2C83]">
-              A tu manera
-            </p>
-
-            <h3 className="mt-4 max-w-2xl text-3xl font-medium leading-tight text-[#241C28] md:text-4xl">
-              Porque no hay dos combinaciones perfectas iguales.
+        <div className="mt-24 md:mt-32">
+          <div className="mb-8 flex items-end justify-between border-b border-[#24102F]/20 pb-5">
+            <h3 className="text-2xl font-medium tracking-[-0.04em] md:text-3xl">
+              Açaí bowls
             </h3>
+
+            <span className="text-[0.6rem] uppercase tracking-[0.2em] text-[#24102F]/45">
+              Nuestras sugerencias
+            </span>
           </div>
 
-          <p className="mt-6 max-w-sm text-sm leading-7 text-[#241C28]/60 md:mt-0">
-            Elige los toppings que más te gustan y crea una combinación hecha
-            especialmente para ti.
-          </p>
-        </motion.div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {bowls.map((bowl, index) => (
+              <motion.article
+                key={bowl.name}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+              >
+                <div className="group relative aspect-[0.82] overflow-hidden">
+                  <img
+                    src={bowl.image}
+                    alt={bowl.name}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                  />
+                </div>
 
+                <div className="flex items-start justify-between gap-5 border-b border-[#24102F]/20 py-5">
+                  <div>
+                    <h4 className="text-xl font-medium tracking-[-0.03em]">
+                      {bowl.name}
+                    </h4>
+
+                    <p className="mt-2 max-w-[230px] text-sm leading-6 text-[#24102F]/55">
+                      {bowl.description}
+                    </p>
+                  </div>
+
+                  <span className="shrink-0 text-sm">
+                    {bowl.price}
+                  </span>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-24 grid grid-cols-1 gap-16 border-t border-[#24102F]/20 pt-8 md:mt-32 lg:grid-cols-2 lg:gap-24">
+          <div>
+            <h3 className="text-2xl font-medium tracking-[-0.04em] md:text-3xl">
+              Crea tu bowl
+            </h3>
+
+            <p className="mt-5 max-w-md text-sm leading-7 text-[#24102F]/55">
+              Elige el tamaño que más te apetezca y crea tu combinación.
+            </p>
+
+            <div className="mt-10">
+              {sizes.map(([size, ml, price]) => (
+                <div
+                  key={size}
+                  className="flex items-center justify-between border-t border-[#24102F]/15 py-5"
+                >
+                  <div className="flex items-center gap-5">
+                    <span className="text-2xl font-medium">{size}</span>
+                    <span className="text-sm text-[#24102F]/50">
+                      {ml}
+                    </span>
+                  </div>
+
+                  <span className="text-sm">{price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-medium tracking-[-0.04em] md:text-3xl">
+              Smoothies
+            </h3>
+
+            <div className="mt-10">
+              {smoothies.map((smoothie) => (
+                <div
+                  key={smoothie.name}
+                  className="border-t border-[#24102F]/15 py-5"
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <div>
+                      <h4 className="text-lg font-medium">
+                        {smoothie.name}
+                      </h4>
+
+                      <p className="mt-2 text-sm leading-6 text-[#24102F]/55">
+                        {smoothie.description}
+                      </p>
+                    </div>
+
+                    <span className="shrink-0 text-sm">
+                      {smoothie.price}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-24 flex flex-col items-start justify-between gap-8 border-t border-[#24102F]/20 pt-8 md:mt-32 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow text-[#5F2D91]">
+              ¿Te apetece?
+            </p>
+
+            <p className="mt-5 max-w-lg text-2xl leading-tight tracking-[-0.04em] md:text-3xl">
+              Pide tu bowl y disfruta de Alma Viva donde quieras.
+            </p>
+          </div>
+
+          <a
+            href="https://glovoapp.com/es/es/aguadulce/stores/alma-viva-acai-aguadulce"
+            target="_blank"
+            rel="noreferrer"
+            className="border-b border-[#24102F] pb-2 text-[0.65rem] uppercase tracking-[0.2em] transition-opacity hover:opacity-50"
+          >
+            Pedir en Glovo
+          </a>
+        </div>
       </div>
     </section>
   );

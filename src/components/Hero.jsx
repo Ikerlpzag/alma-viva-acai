@@ -60,8 +60,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="max-w-md text-sm leading-6 text-white/75 md:text-base"
             >
-              Açaí artesanal preparado al momento, ingredientes de calidad y
-              toppings para crear una combinación hecha a tu gusto.
+              Açaí preparado al momento, ingredientes de calidad y toppings para crear la combinación que más te guste.
             </motion.p>
 
             <motion.button

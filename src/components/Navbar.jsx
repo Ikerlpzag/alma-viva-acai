@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { name: "Inicio", id: "inicio" },
   { name: "Sobre nosotros", id: "sobre" },
   { name: "Açaí", id: "acai" },
   { name: "Productos", id: "productos" },
+  { name: "Beneficios", id: "beneficios" },
   { name: "Filosofía", id: "filosofia" },
   { name: "Visítanos", id: "visitanos" },
 ];
 
+const GLOVO_URL =
+  "https://glovoapp.com/es/es/aguadulce/stores/alma-viva-acai-aguadulce";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,208 +24,178 @@ export default function Navbar() {
     };
 
     handleScroll();
-
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Bloquear el scroll de la página cuando el menú está abierto
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = menuOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [menuOpen]);
 
-  const goTo = (id) => {
-    setOpen(false);
+  const scrollToSection = (id) => {
+    setMenuOpen(false);
 
-    setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }, 200);
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full">
-
-      {/* NAVBAR */}
+    <>
       <nav
-        className={`relative z-50 transition-all duration-500 ${
-          scrolled && !open
-            ? "border-b border-black/5 bg-[#F7F1E8]/95 py-3 backdrop-blur-md"
-            : "bg-transparent py-5"
+        className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+          scrolled
+            ? "bg-[#F7F1E8]/95 text-[#241C28] backdrop-blur-md"
+            : "bg-transparent text-white"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-
-          {/* LOGO */}
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+          {/* Logo */}
           <button
-            onClick={() => goTo("inicio")}
+            onClick={() => scrollToSection("inicio")}
             className="relative z-50 text-left"
           >
-            <span
-              className={`block text-[10px] uppercase tracking-[0.35em] transition-colors duration-300 ${
-                open
-                  ? "text-[#5B2C83]"
-                  : scrolled
-                    ? "text-[#5B2C83]"
-                    : "text-white/80"
-              }`}
-            >
+            <span className="block text-lg font-medium tracking-[-0.03em]">
               Alma Viva
             </span>
 
             <span
-              className={`block text-lg font-medium tracking-[0.18em] transition-colors duration-300 ${
-                open
-                  ? "text-[#241C28]"
-                  : scrolled
-                    ? "text-[#241C28]"
-                    : "text-white"
+              className={`block text-[9px] uppercase tracking-[0.3em] transition-colors duration-500 ${
+                scrolled ? "text-[#5B2C83]" : "text-white/75"
               }`}
             >
-              AÇAÍ
+              Açaí
             </span>
           </button>
 
-          {/* DESKTOP */}
-          <div className="hidden items-center gap-8 lg:flex">
+          {/* Desktop navigation */}
+          <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
               <button
                 key={link.id}
-                onClick={() => goTo(link.id)}
-                className={`text-xs transition-colors ${
-                  scrolled
-                    ? "text-[#241C28]/70 hover:text-[#5B2C83]"
-                    : "text-white/85 hover:text-white"
+                onClick={() => scrollToSection(link.id)}
+                className={`text-[11px] uppercase tracking-[0.16em] transition-opacity duration-300 hover:opacity-60 ${
+                  scrolled ? "text-[#241C28]" : "text-white"
                 }`}
               >
                 {link.name}
               </button>
             ))}
+
+            {/* Glovo */}
+            <a
+              href={GLOVO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`ml-2 flex h-11 items-center justify-center border px-5 text-[10px] font-medium uppercase tracking-[0.16em] transition-all duration-300 ${
+                scrolled
+                  ? "border-[#5B2C83] bg-[#5B2C83] text-[#F7F1E8] hover:bg-transparent hover:text-[#5B2C83]"
+                  : "border-white bg-white text-[#5B2C83] hover:bg-transparent hover:text-white"
+              }`}
+            >
+               Pedir en Glovo
+            </a>
           </div>
 
-          {/* HAMBURGER / X */}
-          <button
-            type="button"
-            onClick={() => setOpen((current) => !current)}
-            className={`relative z-[60] flex h-12 w-12 items-center justify-center lg:hidden ${
-              open || scrolled ? "text-[#241C28]" : "text-white"
-            }`}
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={open}
-          >
-            {/* Contenedor con espacio suficiente para la X */}
-            <span className="relative block h-7 w-7">
+          {/* Mobile controls */}
+          <div className="relative z-50 flex items-center gap-4 md:hidden">
+            {/* Glovo mobile */}
+            
+            {/* Menu button */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              className={`relative flex h-10 w-10 items-center justify-center border ${
+                scrolled
+                  ? "border-[#241C28]/20"
+                  : "border-white/40"
+              }`}
+            >
+              <div className="relative h-4 w-5">
+                <motion.span
+                  animate={
+                    menuOpen
+                      ? { rotate: 45, y: 6 }
+                      : { rotate: 0, y: 0 }
+                  }
+                  className={`absolute left-0 top-0 h-px w-5 ${
+                    scrolled ? "bg-[#241C28]" : "bg-white"
+                  }`}
+                />
 
-              {/* Línea superior */}
-              <span
-                className={`absolute left-0 top-1/2 block h-[2px] w-7 origin-center bg-current transition-transform duration-300 ease-in-out ${
-                  open
-                    ? "rotate-45"
-                    : "-translate-y-[9px] rotate-0"
-                }`}
-              />
+                <motion.span
+                  animate={
+                    menuOpen
+                      ? { opacity: 0 }
+                      : { opacity: 1 }
+                  }
+                  className={`absolute left-0 top-1/2 h-px w-5 ${
+                    scrolled ? "bg-[#241C28]" : "bg-white"
+                  }`}
+                />
 
-              {/* Línea central */}
-              <span
-                className={`absolute left-0 top-1/2 block h-[2px] w-7 bg-current transition-all duration-200 ease-in-out ${
-                  open
-                    ? "scale-x-0 opacity-0"
-                    : "scale-x-100 opacity-100"
-                }`}
-              />
-
-              {/* Línea inferior */}
-              <span
-                className={`absolute left-0 top-1/2 block h-[2px] w-7 origin-center bg-current transition-transform duration-300 ease-in-out ${
-                  open
-                    ? "-rotate-45"
-                    : "translate-y-[9px] rotate-0"
-                }`}
-              />
-
-            </span>
-          </button>
+                <motion.span
+                  animate={
+                    menuOpen
+                      ? { rotate: -45, y: -6 }
+                      : { rotate: 0, y: 0 }
+                  }
+                  className={`absolute left-0 top-full h-px w-5 ${
+                    scrolled ? "bg-[#241C28]" : "bg-white"
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* MENÚ MÓVIL A PANTALLA COMPLETA */}
-      <div
-        className={`fixed inset-0 z-40 min-h-screen overflow-hidden bg-[#F7F1E8] transition-all duration-500 ease-in-out lg:hidden ${
-          open
-            ? "visible opacity-100"
-            : "invisible opacity-0"
-        }`}
-      >
-        
-        {/* Contenido */}
-        <div className="relative flex min-h-screen flex-col px-6 pb-8 pt-28">
-
-          {/* Links */}
-          <nav className="flex flex-1 flex-col justify-center">
-
-            {links.map((link, index) => (
-              <button
-                key={link.id}
-                type="button"
-                onClick={() => goTo(link.id)}
-                className={`group flex w-full items-center justify-between border-b border-[#241C28]/10 py-4 text-left transition-all duration-500 ${
-                  open
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-5 opacity-0"
-                }`}
-                style={{
-                  transitionDelay: open
-                    ? `${100 + index * 60}ms`
-                    : "0ms",
-                }}
-              >
-                <span className="text-3xl font-medium tracking-tight text-[#241C28] transition-colors duration-300 group-hover:text-[#5B2C83] sm:text-4xl">
-                  {link.name}
-                </span>
-
-                <span className="text-xl text-[#5B2C83]/60 transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </button>
-            ))}
-
-          </nav>
-
-          {/* Información inferior */}
-          <div
-            className={`flex items-end justify-between pt-8 transition-all duration-500 ${
-              open
-                ? "translate-y-0 opacity-100"
-                : "translate-y-5 opacity-0"
-            }`}
-            style={{
-              transitionDelay: open ? "500ms" : "0ms",
-            }}
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className="fixed inset-0 z-40 flex flex-col bg-[#F7F1E8] px-6 pb-10 pt-28 text-[#241C28] md:hidden"
           >
-            <a
-              href="https://www.instagram.com/almavivaacai/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm text-[#5B2C83]"
-            >
-              @almavivaacai
-            </a>
+            <div className="flex flex-1 flex-col justify-center">
+              {links.map((link, index) => (
+                <motion.button
+                  key={link.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.05,
+                  }}
+                  onClick={() => scrollToSection(link.id)}
+                  className="border-b border-[#241C28]/10 py-5 text-left text-3xl font-medium tracking-[-0.03em]"
+                >
+                  {link.name}
+                </motion.button>
+              ))}
+            </div>
 
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#241C28]/35">
-              Aguadulce · Almería
-            </span>
-          </div>
-
-        </div>
-      </div>
-    </header>
+            <div className="border-t border-[#241C28]/10 pt-6">
+              <a
+                href={GLOVO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-14 items-center justify-center bg-[#5B2C83] text-xs uppercase tracking-[0.2em] text-[#F7F1E8]"
+              >
+                Pedir en Glovo →
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
