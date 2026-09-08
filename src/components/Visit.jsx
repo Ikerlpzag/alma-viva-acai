@@ -41,7 +41,7 @@ export default function Visit() {
           >
             <iframe
               title="Ubicación de Alma Viva Açaí"
-              src="https://www.google.com/maps?q=Paseo%20Marítimo%20de%20Aguadulce%2C%20Almería&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3789.006579004665!2d-2.5698314237297906!3d36.81265236699688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7071e42ad8a18f%3A0x8d1682a34e45719b!2zQUxNQSBWSVZBIEHDh0HDjQ!5e1!3m2!1ses!2ses!4v1788881784997!5m2!1ses!2ses"
               className="h-full min-h-[420px] w-full border-0 md:min-h-[560px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -63,9 +63,9 @@ export default function Visit() {
                 </p>
 
                 <p className="mt-4 text-xl font-medium leading-tight md:text-2xl">
-                  Paseo Marítimo de Aguadulce
+                  Paseo Marítimo 23
                   <br />
-                  Almería, España
+                  Aguadulce, Almería
                 </p>
               </div>
 

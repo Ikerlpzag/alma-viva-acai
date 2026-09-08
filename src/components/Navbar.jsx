@@ -183,14 +183,14 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="border-t border-[#241C28]/10 pt-6">
+            <div className=" pt-6">
               <a
                 href={GLOVO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-14 items-center justify-center bg-[#5B2C83] text-xs uppercase tracking-[0.2em] text-[#F7F1E8]"
               >
-                Pedir en Glovo →
+                Pedir en Glovo
               </a>
             </div>
           </motion.div>

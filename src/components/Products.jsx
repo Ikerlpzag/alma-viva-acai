@@ -205,7 +205,8 @@ export default function Products() {
             href="https://glovoapp.com/es/es/aguadulce/stores/alma-viva-acai-aguadulce"
             target="_blank"
             rel="noreferrer"
-            className="border-b border-[#24102F] pb-2 text-[0.65rem] uppercase tracking-[0.2em] transition-opacity hover:opacity-50"
+            className="ml-2 flex h-11 items-center justify-center border px-5 text-[10px] font-medium uppercase tracking-[0.16em] transition-all duration-300 bg-[#5B2C83] text-[#F7F1E8] hover:bg-transparent hover:text-[#5B2C83]"
+            
           >
             Pedir en Glovo
           </a>
