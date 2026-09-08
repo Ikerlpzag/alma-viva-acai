@@ -31,7 +31,7 @@ export default function AvisoLegal() {
           <section>
             **Ubicación**
 
-            Paseo Marítimo de Aguadulce, Almería.
+            Paseo Marítimo 23, Aguadulce, Almería.
           </section>
 
           <section>
