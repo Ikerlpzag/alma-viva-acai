@@ -1,27 +1,19 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Acai from "./components/Acai";
-import Products from "./components/Products";
-import Benefits from "./components/Benefits";
-import Philosophy from "./components/Philosophy";
-import Visit from "./components/Visit";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+import Home from "./pages/Home";
+import AvisoLegal from "./pages/AvisoLegal";
+import Privacidad from "./pages/Privacidad";
+import Cookies from "./pages/Cookies";
+
+export default function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Acai />
-      <Products />
-      <Benefits />
-      <Philosophy />
-      <Visit />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aviso-legal" element={<AvisoLegal />} />
+        <Route path="/privacidad" element={<Privacidad />} />
+        <Route path="/cookies" element={<Cookies />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

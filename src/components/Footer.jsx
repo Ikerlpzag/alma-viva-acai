@@ -72,9 +72,9 @@ export default function Footer() {
             </p>
 
             <p className="mt-5 text-sm leading-6 text-white/70">
-              Paseo Marítimo de Aguadulce
+              Paseo Marítimo 23
               <br />
-              Almería, España
+              Aguadulce, Almería
             </p>
           </div>
 
@@ -115,16 +115,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-20 flex flex-col gap-5 border-t border-white/15 pt-7 text-[11px] text-white/35 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-20 flex flex-col gap-3 border-t border-white/15 pt-7 text-[11px] text-white/35 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} Alma Viva Açaí. Todos los derechos reservados.</p>
 
-          <p>
-            © {new Date().getFullYear()} Alma Viva Açaí
-          </p>
-
-          <p>
-            Hecho en Aguadulce.
-          </p>
-
+          <div className="flex gap-4">
+            <a href="/aviso-legal" className="hover:text-white">
+              Aviso legal
+            </a>
+            <a href="/privacidad" className="hover:text-white">
+              Privacidad
+            </a>
+            <a href="/cookies" className="hover:text-white">
+              Cookies
+            </a>
+          </div>
         </div>
 
       </div>
