@@ -49,7 +49,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-          scrolled
+          scrolled || menuOpen
             ? "bg-[#F7F1E8]/95 text-[#241C28] backdrop-blur-md"
             : "bg-transparent text-white"
         }`}
@@ -66,7 +66,9 @@ export default function Navbar() {
 
             <span
               className={`block text-[9px] uppercase tracking-[0.3em] transition-colors duration-500 ${
-                scrolled ? "text-[#5B2C83]" : "text-white/75"
+                scrolled || menuOpen
+                  ? "text-[#5B2C83]"
+                  : "text-white/75"
               }`}
             >
               Açaí
@@ -80,7 +82,7 @@ export default function Navbar() {
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
                 className={`text-[11px] uppercase tracking-[0.16em] transition-opacity duration-300 hover:opacity-60 ${
-                  scrolled ? "text-[#241C28]" : "text-white"
+                  scrolled || menuOpen ? "text-[#241C28]" : "text-white"
                 }`}
               >
                 {link.name}
@@ -93,7 +95,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={`ml-2 flex h-11 items-center justify-center border px-5 text-[10px] font-medium uppercase tracking-[0.16em] transition-all duration-300 ${
-                scrolled
+                scrolled || menuOpen
                   ? "border-[#5B2C83] bg-[#5B2C83] text-[#F7F1E8] hover:bg-transparent hover:text-[#5B2C83]"
                   : "border-white bg-white text-[#5B2C83] hover:bg-transparent hover:text-white"
               }`}
@@ -111,42 +113,36 @@ export default function Navbar() {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
               className={`relative flex h-10 w-10 items-center justify-center border ${
-                scrolled
+                scrolled || menuOpen
                   ? "border-[#241C28]/20"
                   : "border-white/40"
               }`}
             >
-              <div className="relative h-4 w-5">
+              <div className="relative h-6 w-6 overflow-visible">
+                {/* Superior */}
                 <motion.span
-                  animate={
-                    menuOpen
-                      ? { rotate: 45, y: 6 }
-                      : { rotate: 0, y: 0 }
-                  }
-                  className={`absolute left-0 top-0 h-px w-5 ${
-                    scrolled ? "bg-[#241C28]" : "bg-white"
+                  animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className={`absolute left-0 top-1 h-[1.5px] w-6 ${
+                    scrolled || menuOpen ? "bg-[#241C28]" : "bg-white"
                   }`}
                 />
 
+                {/* Central */}
                 <motion.span
-                  animate={
-                    menuOpen
-                      ? { opacity: 0 }
-                      : { opacity: 1 }
-                  }
-                  className={`absolute left-0 top-1/2 h-px w-5 ${
-                    scrolled ? "bg-[#241C28]" : "bg-white"
+                  animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                  className={`absolute left-0 top-3 h-[1.5px] w-6 ${
+                    scrolled || menuOpen ? "bg-[#241C28]" : "bg-white"
                   }`}
                 />
 
+                {/* Inferior */}
                 <motion.span
-                  animate={
-                    menuOpen
-                      ? { rotate: -45, y: -6 }
-                      : { rotate: 0, y: 0 }
-                  }
-                  className={`absolute left-0 top-full h-px w-5 ${
-                    scrolled ? "bg-[#241C28]" : "bg-white"
+                  animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className={`absolute left-0 top-5 h-[1.5px] w-6 ${
+                    scrolled || menuOpen ? "bg-[#241C28]" : "bg-white"
                   }`}
                 />
               </div>
