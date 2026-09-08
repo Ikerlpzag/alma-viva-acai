@@ -77,7 +77,7 @@ const toppings = [
   "Granola SG",
   "Copos de avena",
   "Bayas de goji",
-  "Pistacho",
+  "Pistacho natural",
   "Coco rallado",
   "Coco laminado",
   "Almendra laminada",
